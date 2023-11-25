@@ -1,0 +1,29 @@
+Function Main() returns nothing
+   integer i
+   integer array(5) inventoryAmounts
+   float array(5) inventoryPrices
+   integer selection
+   float moneyEntered
+   selection = Get next input
+   moneyEntered = Get next input
+   inventoryPrices[0] = 1.25
+   inventoryPrices[1] = 1.75
+   inventoryPrices[2] = 2.20
+   inventoryPrices[3] = 0.99
+   inventoryPrices[4] = 1.98
+   
+   for i = 0; i < 5; i = i + 1
+      inventoryAmounts[i] = RandomNumber(1, 10)
+   
+   if(CanBuyItem(selection, moneyEntered))
+      inventoryAmounts[selection] = inventoryAmounts[selection] - 1
+      Put "Your change is " to output
+      Put GetChange(selection, moneyEntered) to 
+      
+Function CanBuyItem(integer selection, float money) returns integer moneyEntered
+   // Check if the user can buy the selected item
+   if selection >= 0 and selection < 5
+      if inventoryAmounts[selection] > 0 and money >= inventoryPrices[selection]
+         canBuy = true
+   canBuy = false
+
